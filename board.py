@@ -1,7 +1,21 @@
+# By submitting this assignment, I agree to the following:
+#   "Aggies do not lie, cheat, or steal, or tolerate those who do."
+#   "I have not given or received any unauthorized aid on this assignment."
+# Names:        Elayne Elphingstone
+#               Reagan Wall
+#               Logan Winship
+#               Tyler Mayou & Zack Abbott
+# Section:      472/572
+# Assignment:   Lab 7A Activity 1
+# Date:         October 13, 2021
+
+#imports
 from pieces import piece, empty
 
+#class definition
 class board():
     def __init__(self):
+        #the board itself
         self.board = [
             [
                 piece([0,0],True), empty([]),
@@ -56,6 +70,8 @@ class board():
             ],
         ]
 
+# This is all the logic and preprocessing for every move
+# Changes single string into 4 integers so the computer can use them
     def move(self, string):
         loc1 = string[0:3]
         loc2 = string[7:]
@@ -71,6 +87,8 @@ class board():
             print("There is not a piece at that location.")
         return
 
+# used to output the board itself
+# overrides the predefined str() method
     def __str__(self):
         string = ""
         for list in self.board:
