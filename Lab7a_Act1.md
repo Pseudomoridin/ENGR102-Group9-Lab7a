@@ -6,6 +6,7 @@ Since i and j are list indices, i goes right as it increases, but j goes down as
 
 ## Algorithm
 ### *Why it works*
+- The word algorithm isn't necessarily accurate- this is object oriented, not procedural, so all logic is split among each object.
 - Program is split into classes:
     - piece classes are piece and empty, used mostly to make output easier with the \_\_str\_\_() method
     - board is represented by the board() class, handles all the necessary logic.
