@@ -4,31 +4,73 @@ class board():
     def __init__(self):
         self.board = [
             [
-                0
+                piece([0,0],True), empty([]),
+                piece([0,3],True), empty([]),
+                piece([0,5],True), empty([]),
+                piece([0,7],True), empty([]),
             ],
             [
-                0
+                empty([]),
+                piece([0,0],True), empty([]),
+                piece([0,3],True), empty([]),
+                piece([0,5],True), empty([]),
+                piece([0,7],True),
             ],
             [
-                0
+                piece([0,0],True), empty([]),
+                piece([0,3],True), empty([]),
+                piece([0,5],True), empty([]),
+                piece([0,7],True), empty([]),
             ],
             [
-                0
+                empty([]), empty([]),
+                empty([]), empty([]),
+                empty([]), empty([]),
+                empty([]), empty([]),
             ],
             [
-                0
+                empty([]), empty([]),
+                empty([]), empty([]),
+                empty([]), empty([]),
+                empty([]), empty([]),
             ],
             [
-                0
+                empty([]),
+                piece([0,0],False), empty([]),
+                piece([0,3],False), empty([]),
+                piece([0,5],False), empty([]),
+                piece([0,7],False),
             ],
             [
-                0
+                piece([0,0],False), empty([]),
+                piece([0,3],False), empty([]),
+                piece([0,5],False), empty([]),
+                piece([0,7],False), empty([]),
             ],
             [
-                0
+                empty([]),
+                piece([0,0],False), empty([]),
+                piece([0,3],False), empty([]),
+                piece([0,5],False), empty([]),
+                piece([0,7],False),
             ],
         ]
-    
+
+    def move(self, string):
+        loc1 = string[0:3]
+        loc2 = string[7:]
+        if (int(loc2[0]) % 2) != (int(loc2[2]) % 2):
+            print(int(loc2[0]) % 2,int(loc2[2]) % 2)
+            print("Move is invalid- you cannot move to that space.")
+            return
+        print(loc1, loc2)
+        if self.board[int(loc1[0])][int(loc1[2])].move_logic():
+            self.board[int(loc2[0])][int(loc2[2])] = self.board[int(loc1[0])][int(loc1[2])]
+            self.board[int(loc1[0])][int(loc1[2])] = empty([])
+        else:
+            print("There is not a piece at that location.")
+        return
+
     def __str__(self):
         string = ""
         for list in self.board:

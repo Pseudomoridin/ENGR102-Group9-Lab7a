@@ -3,7 +3,7 @@ class piece:
         self.position = position
         self.colour = colour
     
-    def move_logic(move):
+    def move_logic(self):
         return True
     
     def __str__(self):
@@ -13,11 +13,11 @@ class piece:
             return "@"
 
 class empty:
-    def __init__(self, position, colour):
+    def __init__(self, position):
         self.position = position
     
-    def move_logic(move):
+    def move_logic(self):
         return False
-    
+
     def __str__(self):
         return "."
